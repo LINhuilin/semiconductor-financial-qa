@@ -1,0 +1,339 @@
+[
+  {
+    "question": "1",
+    "type": "单公司",
+    "http_status": 200,
+    "answer_correct": true,
+    "citation_correct": true,
+    "errors": [],
+    "citations": [
+      {
+        "source": "S1",
+        "company": "兆易创新",
+        "pdf_page": 7,
+        "quote_in_actual_pdf": true
+      }
+    ],
+    "elapsed_seconds": 0.133,
+    "answer_mode": "extractive",
+    "generated": false,
+    "reference_status": "依据上传PDF核对整理；待用户人工复核，官方来源未核验"
+  },
+  {
+    "question": "2",
+    "type": "单公司",
+    "http_status": 200,
+    "answer_correct": true,
+    "citation_correct": true,
+    "errors": [],
+    "citations": [
+      {
+        "source": "S1",
+        "company": "北京君正",
+        "pdf_page": 8,
+        "quote_in_actual_pdf": true
+      }
+    ],
+    "elapsed_seconds": 0.096,
+    "answer_mode": "extractive",
+    "generated": false,
+    "reference_status": "依据上传PDF核对整理；待用户人工复核，官方来源未核验"
+  },
+  {
+    "question": "3",
+    "type": "单公司",
+    "http_status": 200,
+    "answer_correct": true,
+    "citation_correct": true,
+    "errors": [],
+    "citations": [
+      {
+        "source": "S1",
+        "company": "澜起科技",
+        "pdf_page": 14,
+        "quote_in_actual_pdf": true
+      }
+    ],
+    "elapsed_seconds": 0.095,
+    "answer_mode": "extractive",
+    "generated": false,
+    "reference_status": "依据上传PDF核对整理；待用户人工复核，官方来源未核验"
+  },
+  {
+    "question": "4",
+    "type": "单公司",
+    "http_status": 200,
+    "answer_correct": true,
+    "citation_correct": true,
+    "errors": [],
+    "citations": [
+      {
+        "source": "S1",
+        "company": "瑞芯微",
+        "pdf_page": 23,
+        "quote_in_actual_pdf": true
+      }
+    ],
+    "elapsed_seconds": 0.087,
+    "answer_mode": "extractive",
+    "generated": false,
+    "reference_status": "依据上传PDF核对整理；待用户人工复核，官方来源未核验"
+  },
+  {
+    "question": "5",
+    "type": "单公司",
+    "http_status": 200,
+    "answer_correct": true,
+    "citation_correct": true,
+    "errors": [],
+    "citations": [
+      {
+        "source": "S1",
+        "company": "全志科技",
+        "pdf_page": 11,
+        "quote_in_actual_pdf": true
+      }
+    ],
+    "elapsed_seconds": 0.083,
+    "answer_mode": "extractive",
+    "generated": false,
+    "reference_status": "依据上传PDF核对整理；待用户人工复核，官方来源未核验"
+  },
+  {
+    "question": "6",
+    "type": "单公司",
+    "http_status": 200,
+    "answer_correct": true,
+    "citation_correct": true,
+    "errors": [],
+    "citations": [
+      {
+        "source": "S1",
+        "company": "中芯国际",
+        "pdf_page": 8,
+        "quote_in_actual_pdf": true
+      }
+    ],
+    "elapsed_seconds": 0.086,
+    "answer_mode": "extractive",
+    "generated": false,
+    "reference_status": "依据上传PDF核对整理；待用户人工复核，官方来源未核验"
+  },
+  {
+    "question": "7",
+    "type": "单公司",
+    "http_status": 200,
+    "answer_correct": true,
+    "citation_correct": true,
+    "errors": [],
+    "citations": [
+      {
+        "source": "S1",
+        "company": "华虹公司",
+        "pdf_page": 20,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S2",
+        "company": "华虹公司",
+        "pdf_page": 21,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S2",
+        "company": "华虹公司",
+        "pdf_page": 21,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S2",
+        "company": "华虹公司",
+        "pdf_page": 21,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S2",
+        "company": "华虹公司",
+        "pdf_page": 21,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S2",
+        "company": "华虹公司",
+        "pdf_page": 21,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S2",
+        "company": "华虹公司",
+        "pdf_page": 21,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S3",
+        "company": "华虹公司",
+        "pdf_page": 22,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S3",
+        "company": "华虹公司",
+        "pdf_page": 22,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S3",
+        "company": "华虹公司",
+        "pdf_page": 22,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S3",
+        "company": "华虹公司",
+        "pdf_page": 22,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S3",
+        "company": "华虹公司",
+        "pdf_page": 22,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S3",
+        "company": "华虹公司",
+        "pdf_page": 22,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S4",
+        "company": "华虹公司",
+        "pdf_page": 23,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S4",
+        "company": "华虹公司",
+        "pdf_page": 23,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S4",
+        "company": "华虹公司",
+        "pdf_page": 23,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S4",
+        "company": "华虹公司",
+        "pdf_page": 23,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S4",
+        "company": "华虹公司",
+        "pdf_page": 23,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S4",
+        "company": "华虹公司",
+        "pdf_page": 23,
+        "quote_in_actual_pdf": true
+      }
+    ],
+    "elapsed_seconds": 0.096,
+    "answer_mode": "extractive",
+    "generated": false,
+    "reference_status": "依据上传PDF核对整理；待用户人工复核，官方来源未核验"
+  },
+  {
+    "question": "8",
+    "type": "跨公司全景",
+    "http_status": 200,
+    "answer_correct": true,
+    "citation_correct": true,
+    "errors": [],
+    "citations": [
+      {
+        "source": "S1",
+        "company": "长电科技",
+        "pdf_page": 6,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S2",
+        "company": "华天科技",
+        "pdf_page": 9,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S3",
+        "company": "通富微电",
+        "pdf_page": 8,
+        "quote_in_actual_pdf": true
+      }
+    ],
+    "elapsed_seconds": 0.139,
+    "answer_mode": "extractive",
+    "generated": false,
+    "reference_status": "依据上传PDF核对整理；待用户人工复核，官方来源未核验"
+  },
+  {
+    "question": "9",
+    "type": "跨公司全景",
+    "http_status": 200,
+    "answer_correct": true,
+    "citation_correct": true,
+    "errors": [],
+    "citations": [
+      {
+        "source": "S1",
+        "company": "北京君正",
+        "pdf_page": 8,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S2",
+        "company": "兆易创新",
+        "pdf_page": 7,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S3",
+        "company": "澜起科技",
+        "pdf_page": 14,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S4",
+        "company": "全志科技",
+        "pdf_page": 8,
+        "quote_in_actual_pdf": true
+      },
+      {
+        "source": "S5",
+        "company": "瑞芯微",
+        "pdf_page": 7,
+        "quote_in_actual_pdf": true
+      }
+    ],
+    "elapsed_seconds": 0.13,
+    "answer_mode": "extractive",
+    "generated": false,
+    "reference_status": "依据上传PDF核对整理；待用户人工复核，官方来源未核验"
+  },
+  {
+    "question": "10",
+    "type": "资料不足",
+    "http_status": 200,
+    "answer_correct": true,
+    "citation_correct": null,
+    "errors": [],
+    "citations": [],
+    "elapsed_seconds": 0.097,
+    "answer_mode": "extractive",
+    "generated": false,
+    "reference_status": "依据上传PDF核对整理；待用户人工复核，官方来源未核验"
+  }
+]

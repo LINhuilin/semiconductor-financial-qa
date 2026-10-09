@@ -1,5 +1,39 @@
-<!doctype html><html lang="zh"><meta charset="utf-8"><title>半导体财报问答</title><style>body{font:16px system-ui;max-width:1050px;margin:40px auto;background:#f4f7fb;color:#182b46;padding:20px}section{background:white;padding:24px;border-radius:14px;margin:18px 0}textarea{width:95%;font:inherit;padding:12px}button{background:#2359ac;color:white;border:0;border-radius:6px;padding:12px 25px;cursor:pointer}label{display:inline-block;margin:8px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:15px/1.7 system-ui}small{color:#53667f}summary{cursor:pointer;padding:10px}#answer{white-space:pre-wrap;line-height:1.8}</style><h1>半导体上市公司财报问答</h1><p>2025 年报 · 向量检索 + BM25 · 答案可追溯</p><section><h3>选择公司</h3><div id="companies"></div><small>单公司题勾选对应公司；全景题勾选全部公司。未选择时按全部公司检索。</small><h3>输入问题</h3><textarea id="q" rows="3" placeholder="例如：兆易创新2025年的营业收入是多少？同比增长多少？"></textarea><p><button id="ask">查询</button> <button id="download">下载本次记录</button></p><div id="status"></div></section><section><h3>回答</h3><div id="answer">等待提问</div></section><section><h3>召回依据与出处</h3><div id="sources"></div></section><script>
-let current=null;fetch('/inventory').then(r=>r.json()).then(a=>{for(const x of a){let l=document.createElement('label'),c=document.createElement('input');c.type='checkbox';c.value=x.company;l.append(c,document.createTextNode(x.company));document.querySelector('#companies').append(l)}});
-document.querySelector('#ask').onclick=async()=>{let b=document.querySelector('#ask');b.disabled=true;document.querySelector('#status').textContent='检索中…';try{let r=await fetch('/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:document.querySelector('#q').value,companies:[...document.querySelectorAll('input:checked')].map(x=>x.value)})});let d=await r.json();if(d.error)throw Error(d.error);current=d;document.querySelector('#answer').textContent=d.answer;document.querySelector('#status').textContent=(d.generated?'生成式问答':'原文检索模式')+'；向量类型：'+(d.index_mode==='lsa'?'LSA 基线':'神经嵌入');let s=document.querySelector('#sources');s.replaceChildren();for(let h of d.hits){let e=document.createElement('details'),t=document.createElement('summary'),p=document.createElement('pre');t.textContent=`[${h.source}] ${h.company} · ${h.year}年报 · PDF第${h.page}页 · ${h.section}`;p.textContent=h.text+`\n\nBM25: ${h.bm25.toFixed(3)} / 向量相似度: ${h.vector.toFixed(3)}`;e.append(t,p);s.append(e)}}catch(e){document.querySelector('#status').textContent='失败：'+e.message}finally{b.disabled=false}};
-document.querySelector('#download').onclick=()=>{if(!current)return alert('先运行一次查询');let u=URL.createObjectURL(new Blob([JSON.stringify(current,null,2)],{type:'application/json'}));let a=document.createElement('a');a.href=u;a.download='问答记录.json';a.click();URL.revokeObjectURL(u)};
-</script></html>
+<!doctype html>
+<html lang="zh">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>半导体财报抽取式问答</title>
+<style>
+body{font:16px system-ui;max-width:1050px;margin:40px auto;background:#f4f7fb;color:#182b46;padding:20px}section{background:white;padding:24px;border-radius:14px;margin:18px 0}textarea{width:95%;font:inherit;padding:12px}button{background:#2359ac;color:white;border:0;border-radius:6px;padding:12px 25px;cursor:pointer}button:disabled{opacity:.6}label{display:inline-block;margin:8px}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:15px/1.7 system-ui}small{color:#53667f}summary{cursor:pointer;padding:10px}#answer{white-space:pre-wrap;line-height:1.8}a{color:#2359ac}#status{margin-top:16px}
+</style>
+<h1>半导体上市公司财报抽取式问答</h1>
+<p>从年报原文提取答案 · 数值比较与单位换算 · 原文和 PDF 页码可回查</p>
+<small>默认使用规则抽取和 Python 计算，不调用付费 API，不属于大模型生成。仅支持已实现的指标、产品和风险问题。</small>
+<section><h3>选择公司</h3><div id="companies"></div><small>跨公司题请选择所有相关公司；未勾选时优先识别问题中的公司名称。</small><h3>输入问题</h3><textarea id="q" rows="3" placeholder="例如：兆易创新2025年营业收入是多少，同比增长多少？"></textarea><p><button id="ask">查询</button> <button id="download">下载本次记录</button></p><div id="status"></div></section>
+<section><h3>抽取式回答</h3><div id="answer">等待提问。证据不足时将明确说明，不把历史收入当作未来预测。</div></section>
+<section><h3>召回原文与出处</h3><div id="sources"></div></section>
+<script>
+let current=null;
+fetch('/inventory').then(r=>r.json()).then(a=>{for(const x of a){let l=document.createElement('label'),c=document.createElement('input');c.type='checkbox';c.value=x.company;l.append(c,document.createTextNode(x.company));document.querySelector('#companies').append(l)}}).catch(()=>{document.querySelector('#status').textContent='公司清单加载失败，请检查服务日志。'});
+document.querySelector('#ask').onclick=async()=>{
+ const b=document.querySelector('#ask');b.disabled=true;current=null;
+ document.querySelector('#answer').textContent='';document.querySelector('#sources').replaceChildren();document.querySelector('#status').textContent='检索与抽取中…';
+ try{
+  let r=await fetch('/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:document.querySelector('#q').value,companies:[...document.querySelectorAll('input:checked')].map(x=>x.value)})});
+  let d=await r.json();if(!r.ok||d.error)throw Error(d.error||'请求失败');current=d;
+  document.querySelector('#answer').textContent=d.answer;
+  const state={answered:'已抽取',partial:'部分证据不足',insufficient:'证据不足'}[d.answer_status]||'待核对';
+  document.querySelector('#status').textContent=`抽取式回答（非大模型生成） · ${state} · 检索：${d.index_mode==='lsa'?'LSA基线':'神经嵌入'}`;
+  const s=document.querySelector('#sources');
+  for(const h of d.hits){
+   let e=document.createElement('details'),t=document.createElement('summary'),p=document.createElement('pre'),a=document.createElement('a');
+   t.textContent=`[${h.source}] ${h.company} · ${h.year}年报 · PDF第${h.page}页 · ${h.section}`;
+   a.textContent='打开原 PDF 对应页';a.href=h.pdf_url;a.target='_blank';a.rel='noopener';
+   p.textContent=`原文件：${h.file}\n召回方式：${h.retrieval_reason||'检索'}\n\n${h.text}`;
+   if(Number.isFinite(h.bm25)&&Number.isFinite(h.vector))p.textContent+=`\n\nBM25: ${h.bm25.toFixed(3)} / 向量相似度: ${h.vector.toFixed(3)}`;
+   e.append(t,a,p);s.append(e);
+  }
+ }catch(e){document.querySelector('#status').textContent='失败：'+e.message}finally{b.disabled=false}
+};
+document.querySelector('#download').onclick=()=>{if(!current)return alert('先成功运行一次查询');const u=URL.createObjectURL(new Blob([JSON.stringify(current,null,2)],{type:'application/json'}));let a=document.createElement('a');a.href=u;a.download='抽取式问答记录.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};
+</script>
+</html>

@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.py[cod]
+data/chunks.json
+data/index.pkl
+evaluation/local-runs.jsonl
+evaluation/.browser-test-*
