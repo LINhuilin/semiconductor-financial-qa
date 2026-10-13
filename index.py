@@ -1,3 +1,4 @@
+from dataio import load_records
 from pathlib import Path
 import json,pickle,argparse
 import numpy as np
@@ -9,7 +10,7 @@ ROOT=Path(__file__).resolve().parent
 from tokenizer import tokenize
 def main():
  ap=argparse.ArgumentParser(); ap.add_argument('--model',default=''); a=ap.parse_args()
- records=json.loads((ROOT/'data/chunks.json').read_text(encoding='utf-8'))
+ records=load_records()
  texts=[r['company']+' '+r['section']+' '+r['text'] for r in records]
  counts=CountVectorizer(tokenizer=tokenize,token_pattern=None,min_df=1)
  matrix=counts.fit_transform(texts).astype(float).tocsr(); lengths=np.asarray(matrix.sum(axis=1)).ravel()

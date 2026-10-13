@@ -1,3 +1,5 @@
+from dataio import load_records
+from evidence_tools import read as read_evidence, coverage
 from pathlib import Path
 import json,pickle,os,urllib.request
 import numpy as np
@@ -7,7 +9,7 @@ import re
 ROOT=Path(__file__).resolve().parent
 class Engine:
  def __init__(self):
-  self.records=json.loads((ROOT/'data/chunks.json').read_text(encoding='utf-8'))
+  self.records=load_records()
   with (ROOT/'data/index.pkl').open('rb') as f:self.s=pickle.load(f)
   self.encoder=None
   self.companies=sorted({r['company'] for r in self.records})
@@ -30,8 +32,11 @@ class Engine:
    self.pages.append(h)
  def selected_companies(self,q,companies=None):
   return companies or [name for name in self.companies if name in q] or self.companies
- def search(self,q,companies=None,k=12):
+ def search(self,q,companies=None,k=12,route="hybrid",use_rules=True):
   s=self.s
+  original_q=q
+  if use_rules:
+   for alias,term in [("营收","营业收入"),("销售额","营业收入"),("收入增长速度","营业收入同比增速"),("赚了多少钱","归属于上市公司股东的净利润"),("经营现金净流入","经营活动产生的现金流量净额"),("研发花费","研发投入"),("主营芯片","主要产品"),("经营隐患","风险")]:q=q.replace(alias,term)
   retrieval_q=q
   if any(x in q for x in ['营业收入','净利润','现金流量']): retrieval_q+=' 主要会计数据 主要财务指标'
   if '同比' in q: retrieval_q+=' 本期比上年同期增减'
@@ -51,7 +56,7 @@ class Engine:
    b=sorted(indices,key=lambda i:float(bm[i]),reverse=True)[:200]
    d=sorted(indices,key=lambda i:float(similarity[i]),reverse=True)[:200]
    scores={}
-   for ranking in [b,d]:
+   for ranking in ([b] if route=="bm25" else [d] if route=="lsa" else [b,d]):
     for r,i in enumerate(ranking,1):
      if (bm[i]>0 or similarity[i]>0):scores[i]=scores.get(i,0)+1/(60+r)
    ordered=sorted(scores,key=scores.get,reverse=True)
@@ -67,16 +72,16 @@ class Engine:
   for name in names:
    preferred=[]
    for page in self.pages:
-    if page['company']!=name:continue
+    if not use_rules or page['company']!=name:continue
     good=False
-    if kind in ('revenue','profit','cashflow'):
+    if use_rules and kind in ('revenue','profit','cashflow'):
      good=financial_fact(page,kind,year,'同比' in q or '增速' in q) is not None
     elif kind=='research':good=research_facts(page,year) is not None
     elif kind=='products':good=bool(re.search(r'主要产品(?:为|包括|有)',page['text']))
     elif kind=='risk':good=page.get('risk_section',False)
     if good:
      preferred.append(dict(page,retrieval_reason='章节/表头约束召回'))
-   if kind in ('revenue','profit','cashflow'):
+   if use_rules and kind in ('revenue','profit','cashflow'):
     currency_pages=[dict(page,retrieval_reason='同报告人民币本位币补充证据') for page in self.pages
                     if page['company']==name and page['year']==year and CURRENCY_NOTE.search(page['text'])]
     preferred+=currency_pages[:1]
@@ -90,9 +95,35 @@ class Engine:
      if key not in seen:selected.append(r);seen.add(key)
      if len(selected)>=k:break
    if len(selected)>=k:break
-  return [dict(r,source=f'S{n+1}') for n,r in enumerate(selected)]
+  return [dict(r,source=f'S{n+1}',query_original=original_q,query_normalized=q,retrieval_route=route,rules_enabled=use_rules) for n,r in enumerate(selected)]
  def respond(self,q,hits,companies=None):
-  return extract_answer(q,hits,self.selected_companies(q,companies))
+  names=self.selected_companies(q,companies)
+  trace=[]
+  for i,h in enumerate(hits):
+   if h['kind']=='page_text':
+    hits[i]=read_evidence(h);trace.append(dict(tool='read',company=h['company'],page=h['page'],source=h['source']))
+  result=extract_answer(q,hits,names)
+  proof=coverage(self,q,hits,names,result)
+  # Fill explicit missing risk pages through read, bounded by 40 page reads.
+  for row in proof:
+   for page_number in row['missing_pages']:
+    if len(trace)>=40:break
+    page=next((h for h in self.pages if h['company']==row['company'] and h['page']==page_number and h['year']==result['target_year']),None)
+    if page is None:continue
+    h=read_evidence(dict(page,source=f'S{len(hits)+1}',retrieval_reason='证据覆盖缺口补查：风险章节整页'))
+    hits.append(h);trace.append(dict(tool='read',reason='coverage_gap',company=h['company'],page=h['page'],source=h['source']))
+  result=extract_answer(q,hits,names)
+  proof=coverage(self,q,hits,names,result)
+  gaps=[r for r in proof if r['status']=='partial']
+  if gaps:
+   for r in gaps:result['warnings'].append(f"{r['company']}：风险章节仍缺PDF页{r['missing_pages']}，本回答仅为部分摘录。")
+   result['answer_status']='partial'
+   result['answer']+='\n\n'+'\n'.join(result['warnings'])
+  allowed={h['source'] for h in hits if h.get('evidence_read')}
+  for f in result['facts']:
+   if f['source'] not in allowed:raise ValueError('事实引用不在原文阅读白名单')
+  result.update(coverage=proof,evidence_trace=trace,evidence_whitelist=sorted(allowed),question_route='cross_company' if len(names)>1 else 'single_company',planner='deterministic_rules',read_call_count=len(trace),stop_reason='read_budget_exhausted' if any(r['missing_pages'] for r in proof) and len(trace)>=40 else 'coverage_complete' if all(r['status']=='covered' for r in proof) and not result['warnings'] else 'unsupported_or_missing_evidence')
+  return result
  def answer(self,q,hits):
   result=self.respond(q,hits)
   return result['answer'],False

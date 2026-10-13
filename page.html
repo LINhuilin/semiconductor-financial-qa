@@ -10,6 +10,7 @@ body{font:16px system-ui;max-width:1050px;margin:40px auto;background:#f4f7fb;co
 <small>默认使用规则抽取和 Python 计算，不调用付费 API，不属于大模型生成。仅支持已实现的指标、产品和风险问题。</small>
 <section><h3>选择公司</h3><div id="companies"></div><small>跨公司题请选择所有相关公司；未勾选时优先识别问题中的公司名称。</small><h3>输入问题</h3><textarea id="q" rows="3" placeholder="例如：兆易创新2025年营业收入是多少，同比增长多少？"></textarea><p><button id="ask">查询</button> <button id="download">下载本次记录</button></p><div id="status"></div></section>
 <section><h3>抽取式回答</h3><div id="answer">等待提问。证据不足时将明确说明，不把历史收入当作未来预测。</div></section>
+<section><h3>证据覆盖</h3><div id="coverage">等待查询。</div></section>
 <section><h3>召回原文与出处</h3><div id="sources"></div></section>
 <script>
 let current=null;
@@ -21,8 +22,10 @@ document.querySelector('#ask').onclick=async()=>{
   let r=await fetch('/ask',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:document.querySelector('#q').value,companies:[...document.querySelectorAll('input:checked')].map(x=>x.value)})});
   let d=await r.json();if(!r.ok||d.error)throw Error(d.error||'请求失败');current=d;
   document.querySelector('#answer').textContent=d.answer;
+  document.querySelector('#coverage').textContent=(d.coverage||[]).map(x=>`${x.company}：${{covered:'已覆盖',partial:'部分',missing:'缺据'}[x.status]}；已读PDF页 ${x.read_pages.join('、')}；抽取事实 ${x.fact_count}项${x.missing_pages.length?'；缺页 '+x.missing_pages.join('、'):''}`).join('\n');
+  document.querySelector('#coverage').style.whiteSpace='pre-wrap';
   const state={answered:'已抽取',partial:'部分证据不足',insufficient:'证据不足'}[d.answer_status]||'待核对';
-  document.querySelector('#status').textContent=`抽取式回答（非大模型生成） · ${state} · 检索：${d.index_mode==='lsa'?'LSA基线':'神经嵌入'}`;
+  document.querySelector('#status').textContent=`抽取式回答（非大模型生成） · ${state} · 检索：${d.index_mode==='lsa'?'BM25 + LSA + 规则补充':'BM25 + 神经嵌入 + 规则补充'}`;
   const s=document.querySelector('#sources');
   for(const h of d.hits){
    let e=document.createElement('details'),t=document.createElement('summary'),p=document.createElement('pre'),a=document.createElement('a');

@@ -14,6 +14,7 @@ def chunks(text,limit=650):
 
 def main():
  result=[]; inventory=[]; errors=[]
+ previous={x["file"]:x for x in json.loads((ROOT/"data/inventory.json").read_text())} if (ROOT/"data/inventory.json").exists() else {}
  for path in sorted((ROOT/'reports').glob('*.pdf')):
   company=next((x for x in COMPANIES if x in path.name),path.stem)
   with fitz.open(path) as doc:
@@ -39,10 +40,15 @@ def main():
        result.append(dict(base,id=f'{company}-p{pi+1}-table{ti}-r{ri}',kind='table_row',text=f'页面上部信息（单位可能在原页其他位置，须核对）：\n{context}\n表头：{head}\n第{ri}行：'+ ' | '.join(clean(x) for x in row)))
       table_count+=1
     except Exception as e: errors.append(dict(file=path.name,page=pi+1,error=str(e)))
-   inventory.append(dict(company=company,year=year,file=path.name,pages=len(doc),tables=table_count,short_pages=short_pages,sha256=hashlib.sha256(path.read_bytes()).hexdigest(),official_url='待补充官方公告链接'))
+   inventory.append(dict(company=company,year=year,file=path.name,pages=len(doc),tables=table_count,short_pages=short_pages,sha256=hashlib.sha256(path.read_bytes()).hexdigest(),official_url=previous.get(path.name,{}).get('official_url','待补充官方公告链接')))
+   for key,value in previous.get(path.name,{}).items():
+    if key.startswith('official_') or key in ('source_verified','verification','verified_at','verification_error'):
+     inventory[-1][key]=value
   print(company,year,'完成',flush=True)
  (ROOT/'data'/'chunks.json').write_text(json.dumps(result,ensure_ascii=False),encoding='utf-8')
  (ROOT/'data'/'inventory.json').write_text(json.dumps(inventory,ensure_ascii=False,indent=2),encoding='utf-8')
  (ROOT/'data'/'extraction_errors.json').write_text(json.dumps(errors,ensure_ascii=False,indent=2),encoding='utf-8')
+ from dataio import save_portable
+ save_portable(result)
  print('分块数',len(result),'请运行 python index.py')
 if __name__=='__main__':main()

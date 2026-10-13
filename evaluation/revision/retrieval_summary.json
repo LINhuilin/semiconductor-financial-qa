@@ -1,0 +1,544 @@
+[
+  {
+    "route": "lsa",
+    "rules": false,
+    "variant": "original",
+    "company_question_pairs": 15,
+    "all_pages_hit": 2,
+    "mean_page_recall": 0.15,
+    "failures": [
+      {
+        "id": "1",
+        "company": "兆易创新",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "3",
+        "company": "澜起科技",
+        "missing_pages": [
+          14
+        ]
+      },
+      {
+        "id": "5",
+        "company": "全志科技",
+        "missing_pages": [
+          11
+        ]
+      },
+      {
+        "id": "6",
+        "company": "中芯国际",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "7",
+        "company": "华虹公司",
+        "missing_pages": [
+          20,
+          21,
+          22
+        ]
+      },
+      {
+        "id": "8",
+        "company": "长电科技",
+        "missing_pages": [
+          6
+        ]
+      },
+      {
+        "id": "8",
+        "company": "通富微电",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "8",
+        "company": "华天科技",
+        "missing_pages": [
+          9
+        ]
+      },
+      {
+        "id": "9",
+        "company": "兆易创新",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "9",
+        "company": "澜起科技",
+        "missing_pages": [
+          14
+        ]
+      },
+      {
+        "id": "9",
+        "company": "北京君正",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "9",
+        "company": "瑞芯微",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "9",
+        "company": "全志科技",
+        "missing_pages": [
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "route": "lsa",
+    "rules": false,
+    "variant": "paraphrase",
+    "company_question_pairs": 15,
+    "all_pages_hit": 1,
+    "mean_page_recall": 0.06666666666666667,
+    "failures": [
+      {
+        "id": "1",
+        "company": "兆易创新",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "2",
+        "company": "北京君正",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "3",
+        "company": "澜起科技",
+        "missing_pages": [
+          14
+        ]
+      },
+      {
+        "id": "5",
+        "company": "全志科技",
+        "missing_pages": [
+          11
+        ]
+      },
+      {
+        "id": "6",
+        "company": "中芯国际",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "7",
+        "company": "华虹公司",
+        "missing_pages": [
+          20,
+          21,
+          22,
+          23
+        ]
+      },
+      {
+        "id": "8",
+        "company": "长电科技",
+        "missing_pages": [
+          6
+        ]
+      },
+      {
+        "id": "8",
+        "company": "通富微电",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "8",
+        "company": "华天科技",
+        "missing_pages": [
+          9
+        ]
+      },
+      {
+        "id": "9",
+        "company": "兆易创新",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "9",
+        "company": "澜起科技",
+        "missing_pages": [
+          14
+        ]
+      },
+      {
+        "id": "9",
+        "company": "北京君正",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "9",
+        "company": "瑞芯微",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "9",
+        "company": "全志科技",
+        "missing_pages": [
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "route": "bm25",
+    "rules": false,
+    "variant": "original",
+    "company_question_pairs": 15,
+    "all_pages_hit": 13,
+    "mean_page_recall": 0.8666666666666667,
+    "failures": [
+      {
+        "id": "6",
+        "company": "中芯国际",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "7",
+        "company": "华虹公司",
+        "missing_pages": [
+          20,
+          21,
+          22,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "route": "bm25",
+    "rules": false,
+    "variant": "paraphrase",
+    "company_question_pairs": 15,
+    "all_pages_hit": 3,
+    "mean_page_recall": 0.2,
+    "failures": [
+      {
+        "id": "3",
+        "company": "澜起科技",
+        "missing_pages": [
+          14
+        ]
+      },
+      {
+        "id": "5",
+        "company": "全志科技",
+        "missing_pages": [
+          11
+        ]
+      },
+      {
+        "id": "6",
+        "company": "中芯国际",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "7",
+        "company": "华虹公司",
+        "missing_pages": [
+          20,
+          21,
+          22,
+          23
+        ]
+      },
+      {
+        "id": "8",
+        "company": "长电科技",
+        "missing_pages": [
+          6
+        ]
+      },
+      {
+        "id": "8",
+        "company": "通富微电",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "8",
+        "company": "华天科技",
+        "missing_pages": [
+          9
+        ]
+      },
+      {
+        "id": "9",
+        "company": "兆易创新",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "9",
+        "company": "澜起科技",
+        "missing_pages": [
+          14
+        ]
+      },
+      {
+        "id": "9",
+        "company": "北京君正",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "9",
+        "company": "瑞芯微",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "9",
+        "company": "全志科技",
+        "missing_pages": [
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "route": "hybrid",
+    "rules": false,
+    "variant": "original",
+    "company_question_pairs": 15,
+    "all_pages_hit": 5,
+    "mean_page_recall": 0.35,
+    "failures": [
+      {
+        "id": "6",
+        "company": "中芯国际",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "7",
+        "company": "华虹公司",
+        "missing_pages": [
+          20,
+          22,
+          23
+        ]
+      },
+      {
+        "id": "8",
+        "company": "长电科技",
+        "missing_pages": [
+          6
+        ]
+      },
+      {
+        "id": "8",
+        "company": "通富微电",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "8",
+        "company": "华天科技",
+        "missing_pages": [
+          9
+        ]
+      },
+      {
+        "id": "9",
+        "company": "兆易创新",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "9",
+        "company": "澜起科技",
+        "missing_pages": [
+          14
+        ]
+      },
+      {
+        "id": "9",
+        "company": "北京君正",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "9",
+        "company": "瑞芯微",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "9",
+        "company": "全志科技",
+        "missing_pages": [
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "route": "hybrid",
+    "rules": false,
+    "variant": "paraphrase",
+    "company_question_pairs": 15,
+    "all_pages_hit": 2,
+    "mean_page_recall": 0.13333333333333333,
+    "failures": [
+      {
+        "id": "2",
+        "company": "北京君正",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "3",
+        "company": "澜起科技",
+        "missing_pages": [
+          14
+        ]
+      },
+      {
+        "id": "5",
+        "company": "全志科技",
+        "missing_pages": [
+          11
+        ]
+      },
+      {
+        "id": "6",
+        "company": "中芯国际",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "7",
+        "company": "华虹公司",
+        "missing_pages": [
+          20,
+          21,
+          22,
+          23
+        ]
+      },
+      {
+        "id": "8",
+        "company": "长电科技",
+        "missing_pages": [
+          6
+        ]
+      },
+      {
+        "id": "8",
+        "company": "通富微电",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "8",
+        "company": "华天科技",
+        "missing_pages": [
+          9
+        ]
+      },
+      {
+        "id": "9",
+        "company": "兆易创新",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "9",
+        "company": "澜起科技",
+        "missing_pages": [
+          14
+        ]
+      },
+      {
+        "id": "9",
+        "company": "北京君正",
+        "missing_pages": [
+          8
+        ]
+      },
+      {
+        "id": "9",
+        "company": "瑞芯微",
+        "missing_pages": [
+          7
+        ]
+      },
+      {
+        "id": "9",
+        "company": "全志科技",
+        "missing_pages": [
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "route": "hybrid",
+    "rules": true,
+    "variant": "original",
+    "company_question_pairs": 15,
+    "all_pages_hit": 15,
+    "mean_page_recall": 1.0,
+    "failures": []
+  },
+  {
+    "route": "hybrid",
+    "rules": true,
+    "variant": "paraphrase",
+    "company_question_pairs": 15,
+    "all_pages_hit": 15,
+    "mean_page_recall": 1.0,
+    "failures": []
+  }
+]

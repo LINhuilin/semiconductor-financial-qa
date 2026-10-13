@@ -1,0 +1,23 @@
+test_conflicting_same_year_tables_are_refused (test_extractive.ExtractionTests.test_conflicting_same_year_tables_are_refused) ... ok
+test_credentials_do_not_implicitly_enable_paid_api (test_extractive.ExtractionTests.test_credentials_do_not_implicitly_enable_paid_api) ... ok
+test_deducted_profit_does_not_become_attributable_profit (test_extractive.ExtractionTests.test_deducted_profit_does_not_become_attributable_profit) ... ok
+test_foreign_currency_is_not_silently_converted (test_extractive.ExtractionTests.test_foreign_currency_is_not_silently_converted) ... ok
+test_future_target_is_not_report_year (test_extractive.ExtractionTests.test_future_target_is_not_report_year) ... ok
+test_growth_is_verified_against_previous_value (test_extractive.ExtractionTests.test_growth_is_verified_against_previous_value) ... ok
+test_implicit_currency_needs_same_report_note_for_ranking (test_extractive.ExtractionTests.test_implicit_currency_needs_same_report_note_for_ranking) ... ok
+test_missing_company_prevents_complete_ranking (test_extractive.ExtractionTests.test_missing_company_prevents_complete_ranking) ... ok
+test_missing_unit_is_not_guessed (test_extractive.ExtractionTests.test_missing_unit_is_not_guessed) ... ok
+test_prose_requires_retrieved_text (test_extractive.ExtractionTests.test_prose_requires_retrieved_text) ... ok
+test_report_year_after_target_does_not_override_it (test_extractive.ExtractionTests.test_report_year_after_target_does_not_override_it) ... ok
+test_risk_does_not_list_inapplicable_categories (test_extractive.ExtractionTests.test_risk_does_not_list_inapplicable_categories) ... ok
+test_risk_headings_do_not_complete_countermeasure_question (test_extractive.ExtractionTests.test_risk_headings_do_not_complete_countermeasure_question) ... ok
+test_risk_quote_preserves_original_numbering (test_extractive.ExtractionTests.test_risk_quote_preserves_original_numbering) ... ok
+test_unit_conversion_and_ranking (test_extractive.ExtractionTests.test_unit_conversion_and_ranking) ... ok
+test_unknown_question_does_not_fabricate_answer (test_extractive.ExtractionTests.test_unknown_question_does_not_fabricate_answer) ... ok
+test_wrong_percentage_column_is_rejected (test_extractive.ExtractionTests.test_wrong_percentage_column_is_rejected) ... ok
+test_zero_denominator_is_not_divided (test_extractive.ExtractionTests.test_zero_denominator_is_not_divided) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.003s
+
+OK

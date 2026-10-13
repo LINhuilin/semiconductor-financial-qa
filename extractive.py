@@ -10,6 +10,8 @@ CURRENCY_NOTE = re.compile(r'本(?:公司|集团)(?:及境内子公司)?(?:以|�
 
 
 def question_kind(question):
+    for alias,term in [('营收','营业收入'),('销售额','营业收入'),('收入增长速度','营业收入同比增速'),('赚了多少钱','净利润'),('经营现金净流入','现金流量'),('研发花费','研发投入'),('主营芯片','主要产品'),('经营隐患','风险')]:
+        question=question.replace(alias,term)
     if '风险' in question:
         return 'risk'
     if '主要产品' in question:
@@ -26,7 +28,10 @@ def question_kind(question):
 
 
 def requested_year(question, hits):
-    years = re.findall(r'(20\d{2})\s*年', question)
+    matches = list(re.finditer(r'(20\d{2})\s*年', question))
+    years = [m.group(1) for m in matches if not re.match(r'(?:年报|报|年度报告)', question[m.end():])]
+    if not years:
+        years = [m.group(1) for m in matches]
     # A future target in “根据2025年报，2027年收入” must not become 2025.
     return years[-1] if years else next(iter({h['year'] for h in hits}), None)
 
@@ -170,8 +175,8 @@ def prose_facts(hits, kind, year):
             # Only numbered risk headings in the retrieved risk section.
             if not h.get('risk_section'):
                 continue
-            quotes = re.findall(r'^\s*\d+、([^\n]*风险)\s*$', h['text'], re.M)
-            quotes += re.findall(r'^\s*[（(]\d+[）)]([^\n]*风险)\s*$', h['text'], re.M)
+            quotes = [m.group(0).strip() for m in re.finditer(r'^\s*\d+、[^\n]*风险\s*$', h['text'], re.M)]
+            quotes += [m.group(0).strip() for m in re.finditer(r'^\s*[（(]\d+[）)][^\n]*风险\s*$', h['text'], re.M)]
             macro = re.search(r'\(七\)\s*宏观环境风险\s*\n\s*√适用', h['text'])
             if macro:
                 quotes.append(macro.group(0).strip())
@@ -185,9 +190,11 @@ def prose_facts(hits, kind, year):
 def answer(question, hits, companies):
     kind = question_kind(question)
     year = requested_year(question, hits)
-    growth = '同比' in question or '增速' in question
+    growth = '同比' in question or '增速' in question or '增长速度' in question
     facts, warnings, lines = [], [], []
     hit_by_source = {h['source']: h for h in hits}
+    if kind=='risk' and any(x in question for x in ['措施','应对','对策','共同','共性']):
+        warnings.append('当前规则仅提取风险标题，尚不能可靠归纳行业共性或关联各家公司应对措施；下列摘录不构成完整回答。')
     if not year or kind == 'unknown':
         warnings.append('当前规则不能可靠抽取此类问题，请核对下方候选原文。')
     else:

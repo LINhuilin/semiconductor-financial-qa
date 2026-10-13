@@ -19,6 +19,22 @@ class ExtractionTests(unittest.TestCase):
         self.assertEqual(result['answer_status'], 'insufficient')
         self.assertEqual(result['facts'], [])
 
+    def test_report_year_after_target_does_not_override_it(self):
+        result=answer('甲2027年将有多少营收？只依据2025年报能确定吗？',[evidence()],['甲'])
+        self.assertEqual(result['target_year'],'2027')
+        self.assertEqual(result['answer_status'],'insufficient')
+
+    def test_risk_quote_preserves_original_numbering(self):
+        h=evidence();h.update(risk_section=True,text='1、供应链风险\n')
+        result=answer('甲2025年风险',[h],['甲'])
+        self.assertEqual(result['facts'][0]['quote'],'1、供应链风险')
+
+    def test_risk_headings_do_not_complete_countermeasure_question(self):
+        h=evidence();h.update(risk_section=True,text='1、供应链风险\n')
+        result=answer('甲2025年风险及应对措施',[h],['甲'])
+        self.assertEqual(result['answer_status'],'partial')
+        self.assertIn('不构成完整回答',result['answer'])
+
     def test_unit_conversion_and_ranking(self):
         a = evidence('甲', unit='万元', current='12', previous='10', old='8')
         b = evidence('乙', unit='千元', current='150', previous='100', growth='50', old='80', source='S2')
@@ -93,7 +109,7 @@ class ExtractionTests(unittest.TestCase):
 
     def test_credentials_do_not_implicitly_enable_paid_api(self):
         engine = Engine.__new__(Engine); engine.companies = ['甲']
-        with patch.dict('os.environ', {'QA_API_KEY': 'test-only', 'QA_BASE_URL': 'https://api.openai.com/v1', 'QA_MODEL': 'test-model'}), patch('urllib.request.urlopen', side_effect=AssertionError('Unexpected network call')):
+        with patch.dict('os.environ', {'QA_API_KEY': 'test-only', 'QA_BASE_URL': 'https://api.openai.com/v1', 'QA_MODEL': 'test-model'}), patch('urllib.request.urlopen', side_effect=AssertionError('Unexpected network call')), patch('engine.read_evidence', side_effect=lambda h:dict(h,evidence_read=True)):
             text, generated = engine.answer('甲2025年营业收入', [evidence()])
         self.assertFalse(generated)
         self.assertIn('抽取式回答', text)

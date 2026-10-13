@@ -1,0 +1,68 @@
+{
+  "chunks": 28075,
+  "companies": 10,
+  "files": {
+    "chunks.json.gz": "1cf0811cf2a3ecea74ff4fda0a21032082c43f76fd78a35cf99747512b0fe646",
+    "knowledge_base.sqlite.gz": "ac4f33a40b91474fdee5c2909bb013807d8c06151ab8c6815c59b0950e04bbdd"
+  },
+  "company_counts": {
+    "北京君正": {
+      "text": 805,
+      "table_row": 2077,
+      "pages": 206
+    },
+    "长电科技": {
+      "text": 710,
+      "table_row": 2280,
+      "pages": 221
+    },
+    "兆易创新": {
+      "text": 681,
+      "table_row": 2120,
+      "pages": 219
+    },
+    "澜起科技": {
+      "text": 721,
+      "table_row": 1881,
+      "pages": 248
+    },
+    "中芯国际": {
+      "text": 661,
+      "table_row": 1880,
+      "pages": 232
+    },
+    "全志科技": {
+      "text": 704,
+      "table_row": 2066,
+      "pages": 192
+    },
+    "华天科技": {
+      "text": 709,
+      "table_row": 2274,
+      "pages": 184
+    },
+    "华虹公司": {
+      "text": 591,
+      "table_row": 1665,
+      "pages": 193
+    },
+    "瑞芯微": {
+      "text": 529,
+      "table_row": 1794,
+      "pages": 193
+    },
+    "通富微电": {
+      "text": 819,
+      "table_row": 3108,
+      "pages": 198
+    }
+  },
+  "parameters": {
+    "text_limit_chars": 650,
+    "lsa_dimensions": 128,
+    "rrf_constant": 60,
+    "route_candidates_per_company": 200,
+    "max_normal_chunks_per_page": 2
+  },
+  "source_inventory": "data/inventory.json"
+}

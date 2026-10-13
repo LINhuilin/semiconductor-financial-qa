@@ -7,7 +7,34 @@
     "tables": 302,
     "short_pages": [],
     "sha256": "8dbeb6fb2eab282c3120ea8a00dda095c161714e896e87a74cda312e2546e5eb",
-    "official_url": "待补充官方公告链接"
+    "official_url": "https://static.cninfo.com.cn/finalpage/2026-03-28/1225045085.PDF",
+    "official_versions": [
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-28/1225045085.PDF",
+        "title": "2025年年度报告",
+        "announcement_id": "1225045085",
+        "official_pages": 206,
+        "matched_pages": 206,
+        "local_pages": 206,
+        "official_sha256": "8dbeb6fb2eab282c3120ea8a00dda095c161714e896e87a74cda312e2546e5eb",
+        "byte_identical": true,
+        "all_page_text_identical": true
+      }
+    ],
+    "verified_at": "2026-10-13T00:49:24.820134+00:00",
+    "official_title": "2025年年度报告",
+    "source_verified": true,
+    "verification": {
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-28/1225045085.PDF",
+      "title": "2025年年度报告",
+      "announcement_id": "1225045085",
+      "official_pages": 206,
+      "matched_pages": 206,
+      "local_pages": 206,
+      "official_sha256": "8dbeb6fb2eab282c3120ea8a00dda095c161714e896e87a74cda312e2546e5eb",
+      "byte_identical": true,
+      "all_page_text_identical": true
+    }
   },
   {
     "company": "长电科技",
@@ -17,7 +44,34 @@
     "tables": 300,
     "short_pages": [],
     "sha256": "ed6acca8cb4acaa776ebb9717e247f31973d2007b26e0afc104e71cca844f3b1",
-    "official_url": "待补充官方公告链接"
+    "official_url": "https://static.cninfo.com.cn/finalpage/2026-04-10/1225091498.PDF",
+    "official_versions": [
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-04-10/1225091498.PDF",
+        "title": "江苏长电科技股份有限公司2025年年度报告",
+        "announcement_id": "1225091498",
+        "official_pages": 221,
+        "matched_pages": 221,
+        "local_pages": 221,
+        "official_sha256": "ed6acca8cb4acaa776ebb9717e247f31973d2007b26e0afc104e71cca844f3b1",
+        "byte_identical": true,
+        "all_page_text_identical": true
+      }
+    ],
+    "verified_at": "2026-10-13T00:49:26.144515+00:00",
+    "official_title": "江苏长电科技股份有限公司2025年年度报告",
+    "source_verified": true,
+    "verification": {
+      "url": "https://static.cninfo.com.cn/finalpage/2026-04-10/1225091498.PDF",
+      "title": "江苏长电科技股份有限公司2025年年度报告",
+      "announcement_id": "1225091498",
+      "official_pages": 221,
+      "matched_pages": 221,
+      "local_pages": 221,
+      "official_sha256": "ed6acca8cb4acaa776ebb9717e247f31973d2007b26e0afc104e71cca844f3b1",
+      "byte_identical": true,
+      "all_page_text_identical": true
+    }
   },
   {
     "company": "兆易创新",
@@ -27,7 +81,34 @@
     "tables": 296,
     "short_pages": [],
     "sha256": "653c636397dca983bbf653157e6d931ce09895f0f81e162ea8b2d4367577527e",
-    "official_url": "待补充官方公告链接"
+    "official_url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225061352.PDF",
+    "official_versions": [
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225061352.PDF",
+        "title": "兆易创新2025年年度报告",
+        "announcement_id": "1225061352",
+        "official_pages": 219,
+        "matched_pages": 219,
+        "local_pages": 219,
+        "official_sha256": "653c636397dca983bbf653157e6d931ce09895f0f81e162ea8b2d4367577527e",
+        "byte_identical": true,
+        "all_page_text_identical": true
+      }
+    ],
+    "verified_at": "2026-10-13T00:49:28.029159+00:00",
+    "official_title": "兆易创新2025年年度报告",
+    "source_verified": true,
+    "verification": {
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225061352.PDF",
+      "title": "兆易创新2025年年度报告",
+      "announcement_id": "1225061352",
+      "official_pages": 219,
+      "matched_pages": 219,
+      "local_pages": 219,
+      "official_sha256": "653c636397dca983bbf653157e6d931ce09895f0f81e162ea8b2d4367577527e",
+      "byte_identical": true,
+      "all_page_text_identical": true
+    }
   },
   {
     "company": "澜起科技",
@@ -37,7 +118,34 @@
     "tables": 270,
     "short_pages": [],
     "sha256": "f443d9e6b46c8b9136a59527442c465482404c170d43d697ef0bb12b9ee1535a",
-    "official_url": "待补充官方公告链接"
+    "official_url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225057736.PDF",
+    "official_versions": [
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225057736.PDF",
+        "title": "澜起科技2025年年度报告",
+        "announcement_id": "1225057736",
+        "official_pages": 248,
+        "matched_pages": 248,
+        "local_pages": 248,
+        "official_sha256": "f443d9e6b46c8b9136a59527442c465482404c170d43d697ef0bb12b9ee1535a",
+        "byte_identical": true,
+        "all_page_text_identical": true
+      }
+    ],
+    "verified_at": "2026-10-13T00:49:27.639874+00:00",
+    "official_title": "澜起科技2025年年度报告",
+    "source_verified": true,
+    "verification": {
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225057736.PDF",
+      "title": "澜起科技2025年年度报告",
+      "announcement_id": "1225057736",
+      "official_pages": 248,
+      "matched_pages": 248,
+      "local_pages": 248,
+      "official_sha256": "f443d9e6b46c8b9136a59527442c465482404c170d43d697ef0bb12b9ee1535a",
+      "byte_identical": true,
+      "all_page_text_identical": true
+    }
   },
   {
     "company": "中芯国际",
@@ -47,7 +155,45 @@
     "tables": 275,
     "short_pages": [],
     "sha256": "c022cf9323967f66a239ce4f60b30507bc341db6e660a53db9c2966a9ef35531",
-    "official_url": "待补充官方公告链接"
+    "official_url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225037057.PDF",
+    "official_versions": [
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-08-08/1225463966.PDF",
+        "title": "中国国际金融股份有限公司关于中电科芯片技术股份有限公司2025年年度报告信息披露监管问询函之募投项目的核查意见",
+        "announcement_id": "1225463966",
+        "official_pages": 9,
+        "matched_pages": 0,
+        "local_pages": 232,
+        "official_sha256": "4e4812a444f11234da0bcefc05f055fb8bad6e5f77c1c6ee61afcf64087d926d",
+        "byte_identical": false,
+        "all_page_text_identical": false
+      },
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225037057.PDF",
+        "title": "中芯国际2025年年度报告",
+        "announcement_id": "1225037057",
+        "official_pages": 232,
+        "matched_pages": 232,
+        "local_pages": 232,
+        "official_sha256": "c022cf9323967f66a239ce4f60b30507bc341db6e660a53db9c2966a9ef35531",
+        "byte_identical": true,
+        "all_page_text_identical": true
+      }
+    ],
+    "verified_at": "2026-10-13T00:49:33.400548+00:00",
+    "official_title": "中芯国际2025年年度报告",
+    "source_verified": true,
+    "verification": {
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225037057.PDF",
+      "title": "中芯国际2025年年度报告",
+      "announcement_id": "1225037057",
+      "official_pages": 232,
+      "matched_pages": 232,
+      "local_pages": 232,
+      "official_sha256": "c022cf9323967f66a239ce4f60b30507bc341db6e660a53db9c2966a9ef35531",
+      "byte_identical": true,
+      "all_page_text_identical": true
+    }
   },
   {
     "company": "全志科技",
@@ -57,7 +203,34 @@
     "tables": 335,
     "short_pages": [],
     "sha256": "d5e7fd64589c08a69734650fbc14376d9c412d2b13b75c2eb486a89efc76f889",
-    "official_url": "待补充官方公告链接"
+    "official_url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225035756.PDF",
+    "official_versions": [
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225035756.PDF",
+        "title": "2025年年度报告",
+        "announcement_id": "1225035756",
+        "official_pages": 192,
+        "matched_pages": 192,
+        "local_pages": 192,
+        "official_sha256": "d5e7fd64589c08a69734650fbc14376d9c412d2b13b75c2eb486a89efc76f889",
+        "byte_identical": true,
+        "all_page_text_identical": true
+      }
+    ],
+    "verified_at": "2026-10-13T00:49:46.276479+00:00",
+    "official_title": "2025年年度报告",
+    "source_verified": true,
+    "verification": {
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225035756.PDF",
+      "title": "2025年年度报告",
+      "announcement_id": "1225035756",
+      "official_pages": 192,
+      "matched_pages": 192,
+      "local_pages": 192,
+      "official_sha256": "d5e7fd64589c08a69734650fbc14376d9c412d2b13b75c2eb486a89efc76f889",
+      "byte_identical": true,
+      "all_page_text_identical": true
+    }
   },
   {
     "company": "华天科技",
@@ -67,7 +240,34 @@
     "tables": 310,
     "short_pages": [],
     "sha256": "f48ccf00cc32cdcae6203aa8b4ed228f77b680dd5a852a753f5eb83b0bbc7ff0",
-    "official_url": "待补充官方公告链接"
+    "official_url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225059982.PDF",
+    "official_versions": [
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225059982.PDF",
+        "title": "2025年年度报告",
+        "announcement_id": "1225059982",
+        "official_pages": 184,
+        "matched_pages": 184,
+        "local_pages": 184,
+        "official_sha256": "f48ccf00cc32cdcae6203aa8b4ed228f77b680dd5a852a753f5eb83b0bbc7ff0",
+        "byte_identical": true,
+        "all_page_text_identical": true
+      }
+    ],
+    "verified_at": "2026-10-13T00:49:47.213286+00:00",
+    "official_title": "2025年年度报告",
+    "source_verified": true,
+    "verification": {
+      "url": "https://static.cninfo.com.cn/finalpage/2026-03-31/1225059982.PDF",
+      "title": "2025年年度报告",
+      "announcement_id": "1225059982",
+      "official_pages": 184,
+      "matched_pages": 184,
+      "local_pages": 184,
+      "official_sha256": "f48ccf00cc32cdcae6203aa8b4ed228f77b680dd5a852a753f5eb83b0bbc7ff0",
+      "byte_identical": true,
+      "all_page_text_identical": true
+    }
   },
   {
     "company": "华虹公司",
@@ -77,7 +277,45 @@
     "tables": 251,
     "short_pages": [],
     "sha256": "f491406a54e3a33ef84ff6fa945aeb44709f66693faca4df580f41e416aa6872",
-    "official_url": "待补充官方公告链接"
+    "official_url": "https://static.cninfo.com.cn/finalpage/2026-05-15/1225307974.PDF",
+    "official_versions": [
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-05-15/1225307974.PDF",
+        "title": "2025年年度报告(修订版)",
+        "announcement_id": "1225307974",
+        "official_pages": 193,
+        "matched_pages": 193,
+        "local_pages": 193,
+        "official_sha256": "f491406a54e3a33ef84ff6fa945aeb44709f66693faca4df580f41e416aa6872",
+        "byte_identical": true,
+        "all_page_text_identical": true
+      },
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-03-27/1225039291.PDF",
+        "title": "2025年年度报告",
+        "announcement_id": "1225039291",
+        "official_pages": 192,
+        "matched_pages": 0,
+        "local_pages": 193,
+        "official_sha256": "cfa3a9f72f185f97896f3d040bb215cc00688f19f7b23f0fa0c96b705d6b4e04",
+        "byte_identical": false,
+        "all_page_text_identical": false
+      }
+    ],
+    "verified_at": "2026-10-13T00:49:59.049241+00:00",
+    "official_title": "2025年年度报告(修订版)",
+    "source_verified": true,
+    "verification": {
+      "url": "https://static.cninfo.com.cn/finalpage/2026-05-15/1225307974.PDF",
+      "title": "2025年年度报告(修订版)",
+      "announcement_id": "1225307974",
+      "official_pages": 193,
+      "matched_pages": 193,
+      "local_pages": 193,
+      "official_sha256": "f491406a54e3a33ef84ff6fa945aeb44709f66693faca4df580f41e416aa6872",
+      "byte_identical": true,
+      "all_page_text_identical": true
+    }
   },
   {
     "company": "瑞芯微",
@@ -87,7 +325,34 @@
     "tables": 221,
     "short_pages": [],
     "sha256": "68afb0e91ddc2d32527264460d752d3192d6424be045e52a50da0bb4d12338b2",
-    "official_url": "待补充官方公告链接"
+    "official_url": "https://static.cninfo.com.cn/finalpage/2026-04-15/1225103780.PDF",
+    "source_verified": true,
+    "official_versions": [
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-04-15/1225103780.PDF",
+        "title": "2025年年度报告",
+        "announcement_id": "1225103780",
+        "official_pages": 193,
+        "matched_pages": 193,
+        "local_pages": 193,
+        "official_sha256": "68afb0e91ddc2d32527264460d752d3192d6424be045e52a50da0bb4d12338b2",
+        "byte_identical": true,
+        "all_page_text_identical": true
+      }
+    ],
+    "verified_at": "2026-10-13T00:51:39.309495+00:00",
+    "official_title": "2025年年度报告",
+    "verification": {
+      "url": "https://static.cninfo.com.cn/finalpage/2026-04-15/1225103780.PDF",
+      "title": "2025年年度报告",
+      "announcement_id": "1225103780",
+      "official_pages": 193,
+      "matched_pages": 193,
+      "local_pages": 193,
+      "official_sha256": "68afb0e91ddc2d32527264460d752d3192d6424be045e52a50da0bb4d12338b2",
+      "byte_identical": true,
+      "all_page_text_identical": true
+    }
   },
   {
     "company": "通富微电",
@@ -97,6 +362,33 @@
     "tables": 321,
     "short_pages": [],
     "sha256": "b8225569b0838cc9806982204cbafbcf81fab5386af636f25cb0c59b735b7b65",
-    "official_url": "待补充官方公告链接"
+    "official_url": "https://static.cninfo.com.cn/finalpage/2026-04-17/1225112762.PDF",
+    "official_versions": [
+      {
+        "url": "https://static.cninfo.com.cn/finalpage/2026-04-17/1225112762.PDF",
+        "title": "2025年年度报告",
+        "announcement_id": "1225112762",
+        "official_pages": 198,
+        "matched_pages": 198,
+        "local_pages": 198,
+        "official_sha256": "b8225569b0838cc9806982204cbafbcf81fab5386af636f25cb0c59b735b7b65",
+        "byte_identical": true,
+        "all_page_text_identical": true
+      }
+    ],
+    "verified_at": "2026-10-13T00:49:47.740413+00:00",
+    "official_title": "2025年年度报告",
+    "source_verified": true,
+    "verification": {
+      "url": "https://static.cninfo.com.cn/finalpage/2026-04-17/1225112762.PDF",
+      "title": "2025年年度报告",
+      "announcement_id": "1225112762",
+      "official_pages": 198,
+      "matched_pages": 198,
+      "local_pages": 198,
+      "official_sha256": "b8225569b0838cc9806982204cbafbcf81fab5386af636f25cb0c59b735b7b65",
+      "byte_identical": true,
+      "all_page_text_identical": true
+    }
   }
 ]
